@@ -1,0 +1,35 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model IEnumerable<VehicleManagement.Repository.Models.Vehicle>
+@{
+    ViewData["Title"] = "My Vehicles";
+}
+<h2>My Vehicles</h2>
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Registration Number</th>
+            <th>Make</th>
+            <th>Model</th>
+            <th>Year</th>
+            <th>Type</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var v in Model)
+        {
+            <tr>
+                <td>@v.registrationNumber</td>
+                <td>@v.make</td>
+                <td>@v.model</td>
+                <td>@v.yearOfManufacture</td>
+                <td>@v.vehicleType</td>
+                <td>
+                    <a asp-action="Edit" asp-route-vehicleId="@v.vehicleId" class="btn btn-sm btn-warning">Edit</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

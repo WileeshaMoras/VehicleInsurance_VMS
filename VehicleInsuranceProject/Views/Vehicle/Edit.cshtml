@@ -1,0 +1,54 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@model VehicleManagement.Repository.Models.Vehicle
+@{
+    ViewData["Title"] = "Edit Vehicle";
+}
+<h2 class="text-center">Edit Vehicle</h2>
+
+<form asp-action="Edit" method="post" class="container mt-4">
+    <input type="hidden" asp-for="vehicleId" />
+    <input type="hidden" asp-for="customerId" />
+
+    <div class="mb-3 row">
+        <label asp-for="registrationNumber" class="col-sm-2 col-form-label">Registration Number:</label>
+        <div class="col-sm-10">
+            <input asp-for="registrationNumber" class="form-control" />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label asp-for="make" class="col-sm-2 col-form-label">Make:</label>
+        <div class="col-sm-10">
+            <input asp-for="make" class="form-control" />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label asp-for="model" class="col-sm-2 col-form-label">Model:</label>
+        <div class="col-sm-10">
+            <input asp-for="model" class="form-control" />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label asp-for="yearOfManufacture" class="col-sm-2 col-form-label">Year of Manufacture:</label>
+        <div class="col-sm-10">
+            <input asp-for="yearOfManufacture" class="form-control" />
+        </div>
+    </div>
+    <div class="mb-3 row">
+        <label asp-for="vehicleType" class="col-sm-2 col-form-label">Vehicle Type:</label>
+        <div class="col-sm-10">
+            <select asp-for="vehicleType" class="form-select">
+                <option value="CAR">Car</option>
+                <option value="BIKE">Bike</option>
+                <option value="TRUCK">Truck</option>
+            </select>
+        </div>
+    </div>
+
+    <div class="mb-3 row">
+        <div class="col-sm-10 offset-sm-2">
+            <button type="submit" class="btn btn-primary">Update Vehicle</button>
+        </div>
+    </div>
+</form>

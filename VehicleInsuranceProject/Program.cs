@@ -2,6 +2,11 @@ using VehicleInsuranceProject.Repository;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using VehicleInsuranceProject.BusinessLogic;
+using Microsoft.EntityFrameworkCore;
+using VehicleManagement.Repository.Data;
+using VehicleManagement.Repository;
+using VehicleManagement.Repository.Repositories;
+using VehicleManagement.BLL.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -10,6 +15,9 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddDbContext<ClaimDbContext>(options =>
     options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection") ?? throw new InvalidOperationException("Connection string 'ClaimInsureContext' not found.")));
 builder.Services.AddScoped<IClaim, ClaimService>();
+builder.Services.AddScoped<IVehicleRepository, VehicleRepository>();
+builder.Services.AddScoped<IVehicleService, VehicleService>();
+builder.Services.AddControllersWithViews();
 
 
 var app = builder.Build();

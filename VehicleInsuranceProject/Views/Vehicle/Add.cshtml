@@ -1,0 +1,43 @@
+﻿@model VehicleManagement.Repository.Models.Vehicle
+
+<div class="container mt-5">
+    <h2 class="mb-4">Add New Vehicle</h2>
+
+    <form asp-action="Add" method="post" class="border p-4 shadow rounded bg-light">
+
+
+        <input type="hidden" asp-for="customerId" value="@ViewBag.customerId" class="form-control" />
+
+
+        <div class="mb-3">
+            <label asp-for="registrationNumber" class="form-label">Registration Number</label>
+            <input asp-for="registrationNumber" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="make" class="form-label">Make</label>
+            <input asp-for="make" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="model" class="form-label">Model</label>
+            <input asp-for="model" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="yearOfManufacture" class="form-label">Year of Manufacture</label>
+            <input asp-for="yearOfManufacture" class="form-control" />
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="vehicleType" class="form-label">Vehicle Type</label>
+            <select asp-for="vehicleType" class="form-select">
+                <option value="CAR">Car</option>
+                <option value="BIKE">Bike</option>
+                <option value="TRUCK">Truck</option>
+            </select>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Add Vehicle</button>
+    </form>
+</div>
